@@ -11,11 +11,10 @@ class CustomeNoteItem extends StatelessWidget {
         color: const Color(0xffFFCC80),
         borderRadius: BorderRadius.circular(15),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 24.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-
           ListTile(
             contentPadding: const EdgeInsets.symmetric(horizontal: 0),
             title: const Text(

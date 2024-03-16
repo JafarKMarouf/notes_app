@@ -9,17 +9,13 @@ class CustomeBottomSheet extends StatefulWidget {
 }
 
 class _CustomeBottomSheetState extends State<CustomeBottomSheet> {
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+    return const Padding(
+      padding:  EdgeInsets.symmetric(horizontal: 16.0),
       child: SingleChildScrollView(
-        child: Form(
-          key: formKey,
-          child: const CustomeForm(nameButton: 'Add'),
-        ),
+        child:  CustomeForm(nameButton: 'Add'),
       ),
     );
   }

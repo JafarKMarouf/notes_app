@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/custom_form.dart';
-import 'package:notes_app/widgets/customer_app_bar.dart';
+import 'package:notes_app/views/widgets/custom_form.dart';
+import 'package:notes_app/views/widgets/customer_app_bar.dart';
 
 class EditNotesViewBody extends StatefulWidget {
   const EditNotesViewBody({super.key});

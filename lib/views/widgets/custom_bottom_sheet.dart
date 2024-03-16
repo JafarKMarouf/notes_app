@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/custom_form.dart';
+import 'package:notes_app/views/widgets/custom_form.dart';
 
 class CustomeBottomSheet extends StatefulWidget {
   const CustomeBottomSheet({super.key});

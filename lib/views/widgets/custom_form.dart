@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/custom_button.dart';
-import 'package:notes_app/widgets/custom_text_form_field.dart';
+import 'package:notes_app/views/widgets/custom_button.dart';
+import 'package:notes_app/views/widgets/custom_text_form_field.dart';
 
 class CustomeForm extends StatelessWidget {
   const CustomeForm({super.key, required this.nameButton});

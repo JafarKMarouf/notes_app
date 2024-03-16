@@ -6,38 +6,43 @@ class CustomeNoteItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xffFFCC80),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          ListTile(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 0),
-            title: const Text(
-              'Flutter Tips',
-              style: TextStyle(color: Colors.black,fontSize: 26),
-            ),
-            subtitle: Padding(
-              padding: const EdgeInsets.only(top:16.0,bottom: 16.0),
-              child: Text(
-                'Build Your career with Jafar Marouf',
-                style: TextStyle(color: Colors.black.withOpacity(.5),fontSize: 18),
+    return GestureDetector(
+      onTap: (){
+        Navigator.of(context).pushNamed('edit_notes');
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: const Color(0xffFFCC80),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            ListTile(
+              contentPadding: const EdgeInsets.symmetric(horizontal: 0),
+              title: const Text(
+                'Flutter Tips',
+                style: TextStyle(color: Colors.black,fontSize: 26),
+              ),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top:16.0,bottom: 16.0),
+                child: Text(
+                  'Build Your career with Jafar Marouf',
+                  style: TextStyle(color: Colors.black.withOpacity(.5),fontSize: 18),
+                ),
+              ),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: Icon(FontAwesomeIcons.trash,color: Colors.black.withOpacity(.7),size: 26,),
               ),
             ),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: Icon(FontAwesomeIcons.trash,color: Colors.black.withOpacity(.7),size: 26,),
+            Text(
+              'May21,2022',
+              style: TextStyle(color: Colors.black.withOpacity(.4),fontSize: 16),
             ),
-          ),
-          Text(
-            'May21,2022',
-            style: TextStyle(color: Colors.black.withOpacity(.4),fontSize: 16),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

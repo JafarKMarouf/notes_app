@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/constant.dart';
-import 'package:notes_app/widgets/custom_button.dart';
-import 'package:notes_app/widgets/custom_text_form_field.dart';
+import 'package:notes_app/widgets/custom_form.dart';
 
-class CustomeBottomSheet extends StatelessWidget {
+class CustomeBottomSheet extends StatefulWidget {
   const CustomeBottomSheet({super.key});
 
   @override
+  State<CustomeBottomSheet> createState() => _CustomeBottomSheetState();
+}
+
+class _CustomeBottomSheetState extends State<CustomeBottomSheet> {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
-      child: Column(
-        children: [
-          SizedBox(height: 32,),
-          CustomTextFormField(hint: 'title'),
-          SizedBox(height: 16,),
-          CustomTextFormField(hint: 'content',maxLines: 5,),
-          SizedBox(height: 32,),
-          CustomeButton(),
-        ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: SingleChildScrollView(
+        child: Form(
+          key: formKey,
+          child: const CustomeForm(nameButton: 'Add'),
+        ),
       ),
     );
   }
-
-
 }

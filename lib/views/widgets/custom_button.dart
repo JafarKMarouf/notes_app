@@ -6,9 +6,11 @@ class CustomeButton extends StatelessWidget {
     super.key,
     required this.name,
     this.onTap,
+    this.isLoading = false,
   });
   final String name;
   final void Function()? onTap;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +24,21 @@ class CustomeButton extends StatelessWidget {
           color: kPrimaryColor,
         ),
         child:  Center(
-          child: Text(name,style:const TextStyle(
-            color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.w700
-          ),),
+          child:  isLoading ? const SizedBox(
+            width: 24,
+            height: 24,
+            child: CircularProgressIndicator(
+              color: Colors.black54,
+            ),
+          ):
+            Text(
+              name,
+              style:const TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.w700
+            ),
+          ),
         ),
       ),
     );

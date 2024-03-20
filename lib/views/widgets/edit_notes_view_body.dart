@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/widgets/custom_form.dart';
+import 'package:notes_app/views/widgets/add_notes.dart';
 import 'package:notes_app/views/widgets/customer_app_bar.dart';
 
 class EditNotesViewBody extends StatefulWidget {
@@ -22,7 +22,7 @@ class _EditNotesViewBodyState extends State<EditNotesViewBody> {
           children:[
             SizedBox(height: 60,),
             CustomeAppBar(title: 'Edit Notes', icon: Icons.check,),
-            CustomeForm(nameButton: 'Edit'),
+            AddNoteView(nameButton: 'Edit'),
           ],
         ),
       ),

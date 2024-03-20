@@ -1,5 +1,7 @@
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/show_notes/show_notes_cubit.dart';
 import 'package:notes_app/models/note_model/note_model.dart';
 
 class CustomeNoteItem extends StatelessWidget {
@@ -13,7 +15,7 @@ class CustomeNoteItem extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: const Color(0xffFFCC80),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(15),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 16.0),
@@ -34,7 +36,10 @@ class CustomeNoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+                  BlocProvider.of<ShowNotesCubit>(context).fetchNotes();
+                },
                 icon: Icon(FontAwesomeIcons.trash,color: Colors.black.withOpacity(.7),size: 26,),
               ),
             ),

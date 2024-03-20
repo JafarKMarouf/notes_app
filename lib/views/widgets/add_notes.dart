@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/add_notes/add_notes_cubit.dart';
+import 'package:notes_app/cubits/show_notes/show_notes_cubit.dart';
 import 'package:notes_app/models/note_model/note_model.dart';
 import 'package:notes_app/views/widgets/custom_button.dart';
 import 'package:notes_app/views/widgets/custom_text_form_field.dart';
 
-class CustomeForm extends StatefulWidget {
-  const CustomeForm({super.key, required this.nameButton});
+class AddNoteView extends StatefulWidget {
+  const AddNoteView({super.key, required this.nameButton});
   final String nameButton;
   @override
-  State<CustomeForm> createState() => _CustomeFormState();
+  State<AddNoteView> createState() => _AddNoteViewState();
 }
 
-class _CustomeFormState extends State<CustomeForm> {
+class _AddNoteViewState extends State<AddNoteView> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidate = AutovalidateMode.disabled;
   String? title, subTitle;
@@ -51,15 +53,19 @@ class _CustomeFormState extends State<CustomeForm> {
               isLoading: state is AddNotesLoading ? true : false,
               name: widget.nameButton,
               onTap: () {
+                var currentDateTime = DateTime.now();
+                var formatCurrentDateTime = DateFormat('yy / mm / dd').format(currentDateTime);
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
                   var note = NoteModel(
                     title: title!,
                     subTitle: subTitle!,
-                    date: DateTime.now().toString(),
-                    color: 34,
+                    date: formatCurrentDateTime.toString(),
+                    color: Colors.orangeAccent.value ,
                   );
                   BlocProvider.of<AddNotesCubit>(context).addNotes(note);
+                  BlocProvider.of<ShowNotesCubit>(context).fetchNotes();
+
                 } else {
                   autovalidate = AutovalidateMode.always;
                   setState(() {});

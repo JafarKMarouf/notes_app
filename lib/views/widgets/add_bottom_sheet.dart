@@ -4,7 +4,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/add_notes/add_notes_cubit.dart';
-import 'package:notes_app/views/widgets/custom_form.dart';
+import 'package:notes_app/views/widgets/add_notes.dart';
 
 class AddBottomSheet extends StatefulWidget {
   const AddBottomSheet({super.key});
@@ -42,7 +42,7 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
           },
           builder: (context, state) {
             return const SingleChildScrollView(
-              child: CustomeForm(
+              child: AddNoteView(
                 nameButton: 'Add',
               ),
             );

@@ -14,10 +14,9 @@ class CustomeListViewItem extends StatelessWidget {
       builder: (context, state) {
         List<NoteModel> notes =
             BlocProvider.of<ShowNotesCubit>(context).notes ?? [];
-        print('=============notes length ${notes.length} ========');
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0),
-          child: ListView.builder(
+          child:notes.isNotEmpty ?  ListView.builder(
             padding: EdgeInsets.zero,
             itemCount: notes.length,
             itemBuilder: (context, index) {
@@ -25,9 +24,11 @@ class CustomeListViewItem extends StatelessWidget {
                 padding:const EdgeInsets.symmetric(vertical: 8),
                 child: CustomeNoteItem(
                   note: notes[index],
-                ),
+                ) ,
               );
             },
+          ): const Center(
+            child:Text('Not Found notes yet')
           ),
         );
       },

@@ -61,7 +61,7 @@ class _AddNoteViewState extends State<AddNoteView> {
                     title: title!,
                     subTitle: subTitle!,
                     date: formatCurrentDateTime.toString(),
-                    color: Colors.orangeAccent.value ,
+                      color: Colors.orangeAccent.value ,
                   );
                   BlocProvider.of<AddNotesCubit>(context).addNotes(note);
                   BlocProvider.of<ShowNotesCubit>(context).fetchNotes();

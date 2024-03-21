@@ -7,11 +7,13 @@ class CustomTextFormField extends StatelessWidget {
     required this.hint,
     this.maxLines=1,
     this.onSaved,
+    this.onChanged,
   });
 
   final String hint;
   final int maxLines;
   final void Function(String?)? onSaved;
+  final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -23,6 +25,7 @@ class CustomTextFormField extends StatelessWidget {
         }
       },
       onSaved: onSaved,
+      onChanged: onChanged,
       cursorColor: kPrimaryColor,
       decoration: InputDecoration(
         border: buildBorder(),

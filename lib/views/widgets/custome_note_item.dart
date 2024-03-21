@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/show_notes/show_notes_cubit.dart';
 import 'package:notes_app/models/note_model/note_model.dart';
+import 'package:notes_app/views/edit_notes_view.dart';
 
 class CustomeNoteItem extends StatelessWidget {
   const CustomeNoteItem({super.key,required this.note});
@@ -11,7 +12,11 @@ class CustomeNoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.of(context).pushNamed('edit_notes');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => EditNoteView(note: note,)),
+        );
+        // Navigator.of(context).pushNamed('edit_notes',arguments: note);
       },
       child: Container(
         decoration: BoxDecoration(

@@ -50,7 +50,7 @@ class _AddNoteViewState extends State<AddNoteView> {
           const SizedBox(
             height: 16,
           ),
-          const ColorListItem(),
+          const ColorListViewItem(),
           const SizedBox(
             height: 16,
           ),

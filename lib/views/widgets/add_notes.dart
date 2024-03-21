@@ -7,6 +7,8 @@ import 'package:notes_app/models/note_model/note_model.dart';
 import 'package:notes_app/views/widgets/custom_button.dart';
 import 'package:notes_app/views/widgets/custom_text_form_field.dart';
 
+import 'color_list_view.dart';
+
 class AddNoteView extends StatefulWidget {
   const AddNoteView({super.key, required this.nameButton});
   final String nameButton;
@@ -46,7 +48,11 @@ class _AddNoteViewState extends State<AddNoteView> {
             },
           ),
           const SizedBox(
-            height: 32,
+            height: 16,
+          ),
+          const ColorListItem(),
+          const SizedBox(
+            height: 16,
           ),
           BlocBuilder<AddNotesCubit,AddNotesState>(
             builder:(context,state) => CustomeButton(
@@ -81,3 +87,4 @@ class _AddNoteViewState extends State<AddNoteView> {
     );
   }
 }
+

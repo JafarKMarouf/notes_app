@@ -6,7 +6,6 @@ import 'package:notes_app/cubits/add_notes/add_notes_cubit.dart';
 import 'package:notes_app/cubits/show_notes/show_notes_cubit.dart';
 import 'package:notes_app/cubits/simple_bloc_observer.dart';
 import 'package:notes_app/models/note_model/note_model.dart';
-import 'package:notes_app/views/edit_notes_view.dart';
 import 'package:notes_app/views/notes_view.dart';
 
 void main() async {
@@ -19,7 +18,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -31,9 +29,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(brightness: Brightness.dark, fontFamily: 'FiraCode'),
         debugShowCheckedModeBanner: false,
         home: const NotesView(),
-        // routes: {
-        //   'edit_notes': (context) => const EditNoteView(),
-        // },
       ),
     );
   }

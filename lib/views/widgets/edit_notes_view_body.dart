@@ -1,17 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/show_notes/show_notes_cubit.dart';
 import 'package:notes_app/models/note_model/note_model.dart';
-import 'package:notes_app/views/widgets/add_notes.dart';
-import 'package:notes_app/views/widgets/custom_button.dart';
 import 'package:notes_app/views/widgets/custom_text_form_field.dart';
 import 'package:notes_app/views/widgets/customer_app_bar.dart';
 
 class EditNotesViewBody extends StatefulWidget {
   const EditNotesViewBody({super.key,required this.note});
   final NoteModel note;
-
   @override
   State<EditNotesViewBody> createState() => _EditNotesViewBodyState();
 }

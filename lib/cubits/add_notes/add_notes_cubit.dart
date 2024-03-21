@@ -8,12 +8,13 @@ part 'add_notes_state.dart';
 
 class AddNotesCubit extends Cubit<AddNotesState> {
   AddNotesCubit() : super(AddNotesInitial());
+  Color color = const Color(0xff2DFA6A);
 
   addNotes(NoteModel noteModel) async {
+    noteModel.color = color.value;
     emit(AddNotesLoading());
     try {
       var notes = Hive.box<NoteModel>(kNotesBox);
-      // print(notes);
       emit(AddNotesSuccess());
       await notes.add(noteModel);
     } catch (e) {

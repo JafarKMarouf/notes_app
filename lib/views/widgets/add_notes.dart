@@ -60,14 +60,14 @@ class _AddNoteViewState extends State<AddNoteView> {
               name: widget.nameButton,
               onTap: () {
                 var currentDateTime = DateTime.now();
-                var formatCurrentDateTime = DateFormat('yy / mm / dd').format(currentDateTime);
+                var formatCurrentDateTime = DateFormat('yy-MM-d').format(currentDateTime);
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
                   var note = NoteModel(
                     title: title!,
                     subTitle: subTitle!,
                     date: formatCurrentDateTime.toString(),
-                      color: Colors.orangeAccent.value ,
+                    color: BlocProvider.of<AddNotesCubit>(context).color.value ,
                   );
                   BlocProvider.of<AddNotesCubit>(context).addNotes(note);
                   BlocProvider.of<ShowNotesCubit>(context).fetchNotes();

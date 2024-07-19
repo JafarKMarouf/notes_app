@@ -4,7 +4,7 @@ import 'package:notes_app/models/note_model/note_model.dart';
 import 'package:notes_app/views/widgets/color_list_view.dart';
 
 class EditNoteListViewItem extends StatefulWidget {
-  const EditNoteListViewItem({super.key,required this.note});
+  const EditNoteListViewItem({super.key, required this.note});
   final NoteModel note;
   @override
   State<EditNoteListViewItem> createState() => _EditNoteListViewItemState();
@@ -24,24 +24,25 @@ class _EditNoteListViewItemState extends State<EditNoteListViewItem> {
     return SizedBox(
       height: 38 * 2 + 2,
       child: ListView.builder(
-          itemCount:kColors.length,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context,index){
-            return Padding(
-                padding:const EdgeInsets.symmetric(horizontal: 4.0),
-                child: GestureDetector(
-                    onTap: (){
-                      currentIndex = index;
-                      widget.note.color = kColors[index].value;
-                      setState(() {});
-                    },
-                    child: ColorItem(
-                        isActive: currentIndex == index,
-                        color: kColors[index]
-                    )
-                )
-            );
-          }),
+        itemCount: kColors.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0),
+            child: GestureDetector(
+              onTap: () {
+                currentIndex = index;
+                widget.note.color = kColors[index].value;
+                setState(() {});
+              },
+              child: ColorItem(
+                isActive: currentIndex == index,
+                color: kColors[index],
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

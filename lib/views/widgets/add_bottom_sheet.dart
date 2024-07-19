@@ -18,7 +18,7 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: 16.0,
+        left: 16.0,
         right: 16.0,
         bottom: MediaQuery.of(context).viewInsets.bottom,
       ),
@@ -29,13 +29,14 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
           }
           if (state is AddNotesFailure) {
             AwesomeDialog(
-                context: context,
-                dialogType: DialogType.error,
-                title: state.errorMessage,
-                borderSide: const BorderSide(
-                  color: Colors.red,
-                  width: 2,
-                ));
+              context: context,
+              dialogType: DialogType.error,
+              title: state.errorMessage,
+              borderSide: const BorderSide(
+                color: Colors.red,
+                width: 2,
+              ),
+            );
           }
         },
         builder: (context, state) {
